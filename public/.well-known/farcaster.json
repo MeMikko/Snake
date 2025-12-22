@@ -1,0 +1,14 @@
+{
+  "version": "1",
+  "name": "Base Snake Daily",
+  "iconUrl": "https://snake-tawny-three.vercel.app/icon.png",
+  "homeUrl": "https://snake-tawny-three.vercel.app",
+  "subtitle": "Daily snake challenges",
+  "description": "Play Snake daily, check in onchain, and climb the leaderboard. Built natively for Base Mini Apps.",
+  "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
+  "splashBackgroundColor": "#0b0c10",
+  "accountAssociation": {
+    "header": "",
+    "payload": ""
+  }
+}
