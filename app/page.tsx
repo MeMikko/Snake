@@ -5,8 +5,6 @@ import BottomNav from './components/BottomNav';
 import LoadingButton from './components/LoadingButton';
 import OnboardingModal from './components/OnboardingModal';
 import SnakeGame from './components/SnakeGame';
-import minikitConfig from '../minikit.config';
-import MiniKit from '@base-org/minikit';
 
 type TabKey = 'play' | 'daily' | 'leaderboard' | 'profile';
 
@@ -62,29 +60,13 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!isReady) return;
-    const kit = window.MiniKit ?? MiniKit;
-    if (!kit) {
+    const kit = typeof window !== 'undefined' ? window.MiniKit : undefined;
+    if (kit?.user?.username) {
+      setSession({ username: kit.user.username, avatarUrl: kit.user.avatarUrl });
+    } else {
       setSession({ username: 'Player One' });
-      return;
     }
-    const connect = async () => {
-      try {
-        const existing = await kit.getSession?.();
-        if (existing) {
-          setSession({ username: existing.username, avatarUrl: existing.avatarUrl });
-        } else if (kit.connectWallet) {
-          const connected = await kit.connectWallet();
-          setSession({ username: connected.username, avatarUrl: connected.avatarUrl });
-        } else {
-          setSession({ username: 'Player One' });
-        }
-      } catch (error) {
-        setSession({ username: 'Player One' });
-      } finally {
-        await kit.ready?.(minikitConfig);
-      }
-    };
-    connect();
+    kit?.ready?.();
   }, [isReady]);
 
   const leaderboardWithUser = useMemo(() => {
@@ -147,11 +129,12 @@ export default function HomePage() {
   function completeOnboarding() {
     window.localStorage.setItem(STORAGE_KEYS.onboarding, 'true');
     setOnboardingOpen(false);
+    window.MiniKit?.ready?.();
   }
 
   function toggleTheme(next: 'light' | 'dark') {
     window.localStorage.setItem(STORAGE_KEYS.theme, next);
-    document.documentElement.dataset.theme = next;
+    document.body.dataset.theme = next;
   }
 
   return (

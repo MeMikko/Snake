@@ -28,7 +28,7 @@ npm run dev
   - `iconUrl`
   - `splashImageUrl`
   - `accountAssociation` (object remains empty until configured)
-- The client calls `MiniKit.ready()` after the UI is ready and attempts an automatic session via `getSession()` then `connectWallet()`.
+- MiniKit is expected to be injected at runtime on `window.MiniKit` by the hosting client. The app calls `window.MiniKit?.ready?.()` after load and post-onboarding, and reads `window.MiniKit.user` (username/avatar) if provided.
 
 ## Assets (manual)
 - Add `public/icon.png` and `public/splash.png` yourself. Binary assets are intentionally excluded; `public/README.txt` documents this requirement.

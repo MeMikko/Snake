@@ -10,11 +10,11 @@ const themeInitializer = `(() => {
   try {
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const storedTheme = window.localStorage.getItem('minikit-preferred-theme');
-    const miniTheme = window.MiniKit?.themePreference;
-    const resolved = (storedTheme && storedTheme !== 'system') ? storedTheme : (miniTheme && miniTheme !== 'system') ? miniTheme : (systemPrefersDark ? 'dark' : 'light');
-    document.documentElement.dataset.theme = resolved;
+    const miniTheme = window.MiniKit?.theme;
+    const resolved = storedTheme ? storedTheme : miniTheme ? miniTheme : (systemPrefersDark ? 'dark' : 'light');
+    document.body.dataset.theme = resolved;
   } catch (error) {
-    document.documentElement.dataset.theme = 'light';
+    document.body.dataset.theme = 'light';
   }
 })();`;
 
