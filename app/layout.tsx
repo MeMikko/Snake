@@ -58,6 +58,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* 🔑 CRITICAL: signal MiniKit readiness BEFORE React mounts */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (window.MiniKit && typeof window.MiniKit.ready === 'function') {
+                window.MiniKit.ready();
+              }
+            `
+          }}
+        />
+
         {/* Standard OpenGraph */}
         <meta property="og:title" content="Base Snake Daily" />
         <meta
@@ -96,7 +107,7 @@ export default function RootLayout({
         {/* Theme sync before render */}
         <script dangerouslySetInnerHTML={{ __html: themeInitializer }} />
 
-        {/* ✅ GLOBAL AUTH / MINIKIT INIT */}
+        {/* ✅ GLOBAL AUTH / CONTEXT */}
         <Providers>
           {children}
         </Providers>
