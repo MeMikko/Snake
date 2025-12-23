@@ -9,25 +9,21 @@ interface MiniUser {
 
 interface MiniKitContextValue {
   user: MiniUser | null;
-  ready: boolean;
 }
 
 const MiniKitContext = createContext<MiniKitContextValue>({
-  user: null,
-  ready: false
+  user: null
 });
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<MiniUser | null>(null);
-  const [ready, setReady] = useState(false);
 
-  // 🔑 1. SIGNAL READY IMMEDIATELY
+  // 🔑 TÄMÄ POISTAA SPLASHIN
   useEffect(() => {
     window.MiniKit?.ready?.();
-    setReady(true);
   }, []);
 
-  // 🔑 2. LOAD USER ASYNC (NO BLOCKING)
+  // 🔑 USER HAETAAN ASYNC, EI BLOKKAA INITIÄ
   useEffect(() => {
     const interval = setInterval(() => {
       const kit = window.MiniKit;
@@ -44,7 +40,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <MiniKitContext.Provider value={{ user, ready }}>
+    <MiniKitContext.Provider value={{ user }}>
       {children}
     </MiniKitContext.Provider>
   );
