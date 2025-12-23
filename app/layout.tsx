@@ -3,7 +3,7 @@ export const revalidate = 0;
 
 import type { Metadata } from "next";
 import "./globals.css";
-import Providers from "./providers"; // 👈 UUSI: globaali MiniKit/Auth provider
+import Providers from "./providers";
 
 /**
  * Farcaster / Base MiniApp embed metadata
