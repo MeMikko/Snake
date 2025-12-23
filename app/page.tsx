@@ -30,7 +30,7 @@ const STORAGE_KEYS = {
 };
 
 export default function HomePage() {
-  const { user, ready } = useMiniKit();
+  const { user } = useMiniKit();
 
   const [activeTab, setActiveTab] = useState<TabKey>('play');
   const [onboardingOpen, setOnboardingOpen] = useState(false);
