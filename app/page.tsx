@@ -30,7 +30,7 @@ const STORAGE_KEYS = {
 };
 
 export default function HomePage() {
-  const { user } = useMiniKit();
+  const { user, isMiniApp } = useMiniKit();
 
   const [activeTab, setActiveTab] = useState<TabKey>('play');
   const [onboardingOpen, setOnboardingOpen] = useState(false);
@@ -46,13 +46,22 @@ export default function HomePage() {
   const [submitLoading, setSubmitLoading] = useState(false);
 
   /* ----------------------------------
-   * Initial local state (NO AUTH HERE)
+   * Initial local state + DARK DEFAULT
    * ---------------------------------- */
   useEffect(() => {
+    // 🌙 DARK THEME DEFAULT
+    const storedTheme = window.localStorage.getItem(STORAGE_KEYS.theme);
+    if (!storedTheme) {
+      window.localStorage.setItem(STORAGE_KEYS.theme, 'dark');
+      document.body.dataset.theme = 'dark';
+    }
+
     const seen = window.localStorage.getItem(STORAGE_KEYS.onboarding);
     setOnboardingOpen(!seen);
 
-    const storedStreak = Number(window.localStorage.getItem(STORAGE_KEYS.streak) ?? 0);
+    const storedStreak = Number(
+      window.localStorage.getItem(STORAGE_KEYS.streak) ?? 0
+    );
     setStreak(Number.isFinite(storedStreak) ? storedStreak : 0);
 
     const storedCheckIn = window.localStorage.getItem(STORAGE_KEYS.checkIn);
@@ -89,7 +98,7 @@ export default function HomePage() {
   const hasCheckedInToday = lastCheckIn === new Date().toDateString();
 
   /* ----------------------------------
-   * Actions (placeholder txs for now)
+   * Actions (placeholder txs)
    * ---------------------------------- */
   async function dailyCheckIn() {
     setCheckInLoading(true);
@@ -106,11 +115,14 @@ export default function HomePage() {
 
       const updatedStreak = today === previous ? streak : streak + 1 || 1;
       setStreak(updatedStreak);
-      window.localStorage.setItem(STORAGE_KEYS.streak, String(updatedStreak));
+      window.localStorage.setItem(
+        STORAGE_KEYS.streak,
+        String(updatedStreak)
+      );
 
-      setCheckInMessage('Daily check-in recorded with a sponsored transaction.');
+      setCheckInMessage('Daily check-in recorded.');
     } catch {
-      setCheckInMessage('Unable to check in right now. Please try again.');
+      setCheckInMessage('Unable to check in right now.');
     } finally {
       setCheckInLoading(false);
     }
@@ -121,9 +133,9 @@ export default function HomePage() {
 
     try {
       await fakeSponsoredTx('submitScore', score);
-      setCheckInMessage(`Score ${score} submitted for leaderboard review.`);
+      setCheckInMessage(`Score ${score} submitted.`);
     } catch {
-      setCheckInMessage('Unable to submit score at the moment.');
+      setCheckInMessage('Unable to submit score.');
     } finally {
       setSubmitLoading(false);
     }
@@ -146,22 +158,39 @@ export default function HomePage() {
     document.body.dataset.theme = next;
   }
 
-
   return (
     <>
       <main>
+        {/* 🔑 HEADER: Mini App aware */}
         <header
           className="section-card"
-          style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
+            marginBottom: 12
+          }}
         >
           <div className="user-avatar" aria-hidden>
             {avatarLetter}
           </div>
           <div>
-            <p className="subtle-text" style={{ margin: 0 }}>
-              Signed in
-            </p>
-            <strong>{user?.username}</strong>
+            {isMiniApp ? (
+              user ? (
+                <>
+                  <p className="subtle-text" style={{ margin: 0 }}>
+                    Signed in
+                  </p>
+                  <strong>{user.username}</strong>
+                </>
+              ) : (
+                <p className="subtle-text">Loading profile…</p>
+              )
+            ) : (
+              <p className="subtle-text">
+                Open this app in the Base App to play
+              </p>
+            )}
           </div>
         </header>
 
@@ -195,7 +224,7 @@ export default function HomePage() {
         {activeTab === 'daily' && (
           <section className="section-card">
             <h2 className="section-title">Daily check-in</h2>
-            <p className="subtle-text">Keep your streak alive with a single tap.</p>
+            <p className="subtle-text">Keep your streak alive.</p>
 
             <div className="status-card" style={{ marginTop: 12 }}>
               <div>
@@ -222,10 +251,6 @@ export default function HomePage() {
         {activeTab === 'leaderboard' && (
           <section className="section-card">
             <h2 className="section-title">Leaderboard</h2>
-            <p className="subtle-text">
-              Top daily scores across Base Snake players.
-            </p>
-
             <ul className="leaderboard-list" style={{ marginTop: 12 }}>
               {leaderboardWithUser.map((entry, idx) => (
                 <li className="leaderboard-item" key={entry.username}>
@@ -235,7 +260,9 @@ export default function HomePage() {
                   </div>
                   <div className="flex-row">
                     <span className="pill">Score {entry.score}</span>
-                    <span className="subtle-text">Streak {entry.streak}</span>
+                    <span className="subtle-text">
+                      Streak {entry.streak}
+                    </span>
                   </div>
                 </li>
               ))}
@@ -246,10 +273,6 @@ export default function HomePage() {
         {activeTab === 'profile' && (
           <section className="section-card">
             <h2 className="section-title">Profile</h2>
-            <p className="subtle-text">
-              Update theme preferences and review app basics.
-            </p>
-
             <div className="score-row" style={{ marginTop: 12 }}>
               <button className="cta" onClick={() => toggleTheme('light')}>
                 Light
@@ -268,7 +291,12 @@ export default function HomePage() {
       {checkInMessage && (
         <div
           className="section-card"
-          style={{ position: 'fixed', bottom: 90, left: 16, right: 16 }}
+          style={{
+            position: 'fixed',
+            bottom: 90,
+            left: 16,
+            right: 16
+          }}
         >
           <p style={{ margin: 0 }}>{checkInMessage}</p>
         </div>
