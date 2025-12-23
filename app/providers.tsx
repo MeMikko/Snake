@@ -9,22 +9,31 @@ interface MiniUser {
 
 interface MiniKitContextValue {
   user: MiniUser | null;
+  isMiniApp: boolean;
 }
 
 const MiniKitContext = createContext<MiniKitContextValue>({
-  user: null
+  user: null,
+  isMiniApp: false
 });
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<MiniUser | null>(null);
+  const isMiniApp =
+    typeof window !== 'undefined' &&
+    typeof (window as any).MiniKit !== 'undefined';
 
-  // 🔑 TÄMÄ POISTAA SPLASHIN
+  // 🔑 Only signal ready INSIDE Mini App
   useEffect(() => {
-    window.MiniKit?.ready?.();
-  }, []);
+    if (isMiniApp) {
+      window.MiniKit?.ready?.();
+    }
+  }, [isMiniApp]);
 
-  // 🔑 USER HAETAAN ASYNC, EI BLOKKAA INITIÄ
+  // 🔑 Load user only in Mini App
   useEffect(() => {
+    if (!isMiniApp) return;
+
     const interval = setInterval(() => {
       const kit = window.MiniKit;
       if (kit?.user?.username) {
@@ -37,10 +46,10 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     }, 100);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isMiniApp]);
 
   return (
-    <MiniKitContext.Provider value={{ user }}>
+    <MiniKitContext.Provider value={{ user, isMiniApp }}>
       {children}
     </MiniKitContext.Provider>
   );
