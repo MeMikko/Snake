@@ -17,7 +17,7 @@ const MiniKitContext = createContext<MiniKitContextValue>({
   ready: false
 });
 
-export function MiniKitProvider({ children }: { children: React.ReactNode }) {
+export default function Providers({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<MiniUser | null>(null);
   const [ready, setReady] = useState(false);
 
