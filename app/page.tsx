@@ -146,13 +146,6 @@ export default function HomePage() {
     document.body.dataset.theme = next;
   }
 
-  /* ----------------------------------
-   * Render
-   * ---------------------------------- */
-  if (!ready) {
-  return null; // splash hoitaa tämän
-}
-
 
   return (
     <>
