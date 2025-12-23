@@ -5,9 +5,6 @@
     "signature": "ZWy5nnR1Tf7A7kiNJqT1wJhcHQaL1qw6TFU6fVc4LFAC35svJNM5Wvwq2+e9UQqU5Vcx/aCXUCaAI5pdNBK1qxw="
   },
 
-  /* =========================
-     REQUIRED FIELDS
-     ========================= */
   "version": "1",
   "name": "Base Snake Daily",
   "iconUrl": "https://snake-tawny-three.vercel.app/icon.png",
@@ -17,9 +14,6 @@
   "primaryCategory": "Games",
   "tags": ["games", "arcade", "snake", "daily", "leaderboard"],
 
-  /* =========================
-     OPTIONAL (RECOMMENDED)
-     ========================= */
   "subtitle": "Daily snake challenges on Base",
   "description": "Play Snake daily, check in onchain, submit your score, and climb the leaderboard.",
   "tagline": "Play Snake daily and climb the leaderboard",
@@ -35,9 +29,6 @@
   "noindex": false,
   "webhookUrl": "https://snake-tawny-three.vercel.app/api/webhook",
 
-  /* =========================
-     EXISTING FRAME (UNCHANGED)
-     ========================= */
   "frame": {
     "version": "1",
     "name": "Base Snake Daily",
