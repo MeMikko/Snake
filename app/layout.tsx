@@ -3,6 +3,7 @@ export const revalidate = 0;
 
 import type { Metadata } from "next";
 import "./globals.css";
+import Providers from "./providers"; // 👈 UUSI: globaali MiniKit/Auth provider
 
 /**
  * Farcaster / Base MiniApp embed metadata
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
 
 /**
  * Theme initializer (MiniKit → localStorage → system)
+ * (EI MUUTETTU)
  */
 const themeInitializer = `(() => {
   try {
@@ -73,7 +75,6 @@ export default function RootLayout({
         <meta name="fc:frame" content={miniAppEmbed} />
 
         {/* Base Mini App identification */}
-        {/* App ID will be filled after Base Build verification */}
         {/* <meta name="base:app_id" content="YOUR_BASE_APP_ID" /> */}
 
         {/* Base required OpenGraph mirrors */}
@@ -95,7 +96,10 @@ export default function RootLayout({
         {/* Theme sync before render */}
         <script dangerouslySetInnerHTML={{ __html: themeInitializer }} />
 
-        {children}
+        {/* ✅ GLOBAL AUTH / MINIKIT INIT */}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
