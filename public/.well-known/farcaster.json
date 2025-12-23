@@ -11,21 +11,25 @@
   "homeUrl": "https://snake-tawny-three.vercel.app",
   "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
   "splashBackgroundColor": "#eeccff",
-  "primaryCategory": "Games",
-  "tags": ["games", "arcade", "snake", "daily", "leaderboard"],
+
+  "primaryCategory": "games",
+  "tags": ["snake", "arcade", "daily", "base", "leaderboard"],
 
   "subtitle": "Daily snake challenges on Base",
   "description": "Play Snake daily, check in onchain, submit your score, and climb the leaderboard.",
-  "tagline": "Play Snake daily and climb the leaderboard",
+  "tagline": "Play snake daily and climb the leaderboard",
+
   "heroImageUrl": "https://snake-tawny-three.vercel.app/og.png",
   "screenshotUrls": [
     "https://snake-tawny-three.vercel.app/screenshot-1.png",
     "https://snake-tawny-three.vercel.app/screenshot-2.png",
     "https://snake-tawny-three.vercel.app/screenshot-3.png"
   ],
+
   "ogTitle": "Base Snake Daily",
   "ogDescription": "Daily Snake with onchain check-ins and a global leaderboard.",
   "ogImageUrl": "https://snake-tawny-three.vercel.app/og.png",
+
   "noindex": false,
   "webhookUrl": "https://snake-tawny-three.vercel.app/api/webhook",
 
