@@ -1,14 +1,18 @@
 {
-  "version": "1",
-  "name": "Base Snake Daily",
-  "iconUrl": "https://snake-tawny-three.vercel.app/icon.png",
-  "homeUrl": "https://snake-tawny-three.vercel.app",
-  "subtitle": "Daily snake challenges",
-  "description": "Play Snake daily, check in onchain, and climb the leaderboard. Built natively for Base Mini Apps.",
-  "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
-  "splashBackgroundColor": "#0b0c10",
   "accountAssociation": {
-    "header": "",
-    "payload": ""
+    "header": "eyJmaWQiOjE1MjI1NjMsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhGQjE3MjVGOGYxMDk3NTM0Y2NjOTRDYWE3OUJlYTVhZDIzOGJEQWVmIn0",
+    "payload": "eyJkb21haW4iOiJzbmFrZS10YXdueS10aHJlZS52ZXJjZWwuYXBwIn0",
+    "signature": "ZWy5nnR1Tf7A7kiNJqT1wJhcHQaL1qw6TFU6fVc4LFAC35svJNM5Wvwq2+e9UQqU5Vcx/aCXUCaAI5pdNBK1qxw="
+  },
+  "frame": {
+    "version": "1",
+    "name": "Example Frame",
+    "iconUrl": "https://snake-tawny-three.vercel.app/icon.png",
+    "homeUrl": "https://snake-tawny-three.vercel.app",
+    "imageUrl": "https://snake-tawny-three.vercel.app/image.png",
+    "buttonTitle": "Check this out",
+    "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://snake-tawny-three.vercel.app/api/webhook"
   }
 }
