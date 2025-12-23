@@ -86,7 +86,7 @@ export default function RootLayout({
         <meta name="fc:frame" content={miniAppEmbed} />
 
         {/* Base Mini App identification */}
-        {/* <meta name="base:app_id" content="YOUR_BASE_APP_ID" /> */}
+        <meta name="base:app_id" content="694a757e4d3a403912ed7c84" />
 
         {/* Base required OpenGraph mirrors */}
         <meta name="base:og_title" content="Base Snake Daily" />
