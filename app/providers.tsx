@@ -21,6 +21,13 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<MiniUser | null>(null);
   const [ready, setReady] = useState(false);
 
+  // 🔑 1. SIGNAL READY IMMEDIATELY
+  useEffect(() => {
+    window.MiniKit?.ready?.();
+    setReady(true);
+  }, []);
+
+  // 🔑 2. LOAD USER ASYNC (NO BLOCKING)
   useEffect(() => {
     const interval = setInterval(() => {
       const kit = window.MiniKit;
@@ -29,8 +36,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           username: kit.user.username,
           avatarUrl: kit.user.avatarUrl
         });
-        kit.ready?.();
-        setReady(true);
         clearInterval(interval);
       }
     }, 100);
