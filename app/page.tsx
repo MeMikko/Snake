@@ -150,8 +150,9 @@ export default function HomePage() {
    * Render
    * ---------------------------------- */
   if (!ready) {
-    return <div className="loading-screen">Connecting…</div>;
-  }
+  return null; // splash hoitaa tämän
+}
+
 
   return (
     <>
