@@ -1,15 +1,28 @@
 {
+  "accountAssociation": {
+    "header": "eyJmaWQiOjE1MjI1NjMsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhGQjE3MjVGOGYxMDk3NTM0Y2NjOTRDYWE3OUJlYTVhZDIzOGJEQWVmIn0",
+    "payload": "eyJkb21haW4iOiJzbmFrZS10YXdueS10aHJlZS52ZXJjZWwuYXBwIn0",
+    "signature": "ZWy5nnR1Tf7A7kiNJqT1wJhcHQaL1qw6TFU6fVc4LFAC35svJNM5Wvwq2+e9UQqU5Vcx/aCXUCaAI5pdNBK1qxw="
+  },
+
+  /* =========================
+     REQUIRED FIELDS
+     ========================= */
   "version": "1",
   "name": "Base Snake Daily",
-  "subtitle": "Daily snake challenges on Base",
-  "description": "Play Snake daily, check in onchain, submit your score, and climb the leaderboard. A fast, mobile-first Base Mini App.",
-  "tagline": "Play Snake daily and climb the leaderboard",
-  "primaryCategory": "Games",
-  "tags": ["games", "arcade", "daily", "leaderboard", "base"],
   "iconUrl": "https://snake-tawny-three.vercel.app/icon.png",
   "homeUrl": "https://snake-tawny-three.vercel.app",
   "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
-  "splashBackgroundColor": "#0b0c10",
+  "splashBackgroundColor": "#eeccff",
+  "primaryCategory": "Games",
+  "tags": ["games", "arcade", "snake", "daily", "leaderboard"],
+
+  /* =========================
+     OPTIONAL (RECOMMENDED)
+     ========================= */
+  "subtitle": "Daily snake challenges on Base",
+  "description": "Play Snake daily, check in onchain, submit your score, and climb the leaderboard.",
+  "tagline": "Play Snake daily and climb the leaderboard",
   "heroImageUrl": "https://snake-tawny-three.vercel.app/og.png",
   "screenshotUrls": [
     "https://snake-tawny-three.vercel.app/screenshot-1.png",
@@ -17,13 +30,23 @@
     "https://snake-tawny-three.vercel.app/screenshot-3.png"
   ],
   "ogTitle": "Base Snake Daily",
-  "ogDescription": "Play Snake daily, check in onchain, and compete on the leaderboard.",
+  "ogDescription": "Daily Snake with onchain check-ins and a global leaderboard.",
   "ogImageUrl": "https://snake-tawny-three.vercel.app/og.png",
-  "webhookUrl": "https://snake-tawny-three.vercel.app/api/webhook",
   "noindex": false,
-  "accountAssociation": {
-    "header": "eyJmaWQiOjE1MjI1NjMsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhGQjE3MjVGOGYxMDk3NTM0Y2NjOTRDYWE3OUJlYTVhZDIzOGJEQWVmIn0",
-    "payload": "eyJkb21haW4iOiJzbmFrZS10YXdueS10aHJlZS52ZXJjZWwuYXBwIn0",
-    "signature": "ZWy5nnR1Tf7A7kiNJqT1wJhcHQaL1qw6TFU6fVc4LFAC35svJNM5Wvwq2+e9UQqU5Vcx/aCXUCaAI5pdNBK1qxw="
+  "webhookUrl": "https://snake-tawny-three.vercel.app/api/webhook",
+
+  /* =========================
+     EXISTING FRAME (UNCHANGED)
+     ========================= */
+  "frame": {
+    "version": "1",
+    "name": "Base Snake Daily",
+    "iconUrl": "https://snake-tawny-three.vercel.app/icon.png",
+    "homeUrl": "https://snake-tawny-three.vercel.app",
+    "imageUrl": "https://snake-tawny-three.vercel.app/image.png",
+    "buttonTitle": "Check this out",
+    "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://snake-tawny-three.vercel.app/api/webhook"
   }
 }
