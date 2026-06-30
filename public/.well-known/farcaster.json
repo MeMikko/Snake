@@ -7,9 +7,9 @@
   "miniapp": {
     "version": "1",
     "name": "Base Snake Daily",
-    "homeUrl": "https://snake-tawny-three.vercel.app/",
-    "iconUrl": "https://snake-tawny-three.vercel.app/icon.png",
-    "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
+    "homeUrl": "https://snake-lime-beta.vercel.app/",
+    "iconUrl": "https://snake-lime-beta.vercel.app/icon.png",
+    "splashImageUrl": "https://snake-lime-beta.vercel.app/splash.png",
     "splashBackgroundColor": "#eeccff",
 
     "subtitle": "Daily snake challenges",
@@ -20,17 +20,17 @@
     "tags": ["snake", "arcade", "daily", "base", "leaderboard"],
 
     "screenshotUrls": [
-      "https://snake-tawny-three.vercel.app/screenshot-1.png",
-      "https://snake-tawny-three.vercel.app/screenshot-2.png",
-      "https://snake-tawny-three.vercel.app/screenshot-3.png"
+      "https://snake-lime-beta.vercel.app/screenshot-1.png",
+      "https://snake-lime-beta.vercel.app/screenshot-2.png",
+      "https://snake-lime-beta.vercel.app/screenshot-3.png"
     ],
-    "heroImageUrl": "https://snake-tawny-three.vercel.app/og.png",
+    "heroImageUrl": "https://snake-lime-beta.vercel.app/og.png",
 
-    "webhookUrl": "https://snake-tawny-three.vercel.app/api/webhook",
+    "webhookUrl": "https://snake-lime-beta.vercel.app/api/webhook",
 
     "ogTitle": "Base Snake Daily",
     "ogDescription": "Daily snake with onchain check-ins and leaderboard.",
-    "ogImageUrl": "https://snake-tawny-three.vercel.app/og.png",
+    "ogImageUrl": "https://snake-lime-beta.vercel.app/og.png",
 
     "noindex": false
   }
