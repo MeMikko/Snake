@@ -7,9 +7,9 @@
 
   "version": "1",
   "name": "Base Snake Daily",
-  "iconUrl": "https://snake-tawny-three.vercel.app/icon.png",
-  "homeUrl": "https://snake-tawny-three.vercel.app",
-  "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
+  "iconUrl": "snake-lime-beta.vercel.app/icon.png",
+  "homeUrl": "snake-lime-beta.vercel.app",
+  "splashImageUrl": "snake-lime-beta.vercel.app/splash.png",
   "splashBackgroundColor": "#eeccff",
   "primaryCategory": "Games",
   "tags": ["games", "arcade", "snake", "daily", "leaderboard"],
@@ -17,27 +17,27 @@
   "subtitle": "Daily snake challenges on Base",
   "description": "Play Snake daily, check in onchain, submit your score, and climb the leaderboard.",
   "tagline": "Play Snake daily and climb the leaderboard",
-  "heroImageUrl": "https://snake-tawny-three.vercel.app/og.png",
+  "heroImageUrl": "snake-lime-beta.vercel.app/og.png",
   "screenshotUrls": [
-    "https://snake-tawny-three.vercel.app/screenshot-1.png",
-    "https://snake-tawny-three.vercel.app/screenshot-2.png",
-    "https://snake-tawny-three.vercel.app/screenshot-3.png"
+    "snake-lime-beta.vercel.app/screenshot-1.png",
+    "snake-lime-beta.vercel.app/screenshot-2.png",
+    "snake-lime-beta.vercel.app/screenshot-3.png"
   ],
   "ogTitle": "Base Snake Daily",
   "ogDescription": "Daily Snake with onchain check-ins and a global leaderboard.",
-  "ogImageUrl": "https://snake-tawny-three.vercel.app/og.png",
+  "ogImageUrl": "snake-lime-beta.vercel.app/og.png",
   "noindex": false,
-  "webhookUrl": "https://snake-tawny-three.vercel.app/api/webhook",
+  "webhookUrl": "snake-lime-beta.vercel.app/api/webhook",
 
   "frame": {
     "version": "1",
     "name": "Base Snake Daily",
-    "iconUrl": "https://snake-tawny-three.vercel.app/icon.png",
-    "homeUrl": "https://snake-tawny-three.vercel.app",
-    "imageUrl": "https://snake-tawny-three.vercel.app/image.png",
+    "iconUrl": "snake-lime-beta.vercel.app/icon.png",
+    "homeUrl": "snake-lime-beta.vercel.app",
+    "imageUrl": "snake-lime-beta.vercel.app/image.png",
     "buttonTitle": "Check this out",
-    "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
+    "splashImageUrl": "snake-lime-beta.vercel.app/splash.png",
     "splashBackgroundColor": "#eeccff",
-    "webhookUrl": "https://snake-tawny-three.vercel.app/api/webhook"
+    "webhookUrl": "snake-lime-beta.vercel.app/api/webhook"
   }
 }
