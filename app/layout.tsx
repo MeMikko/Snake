@@ -13,14 +13,14 @@ const miniAppEmbed = `{
   "version": "1",
   "requestUser": true,
   "requestProfilePhoto": true,
-  "imageUrl": "https://snake-tawny-three.vercel.app/og.png",
+  "imageUrl": "snake-lime-beta.vercel.app/og.png",
   "button": {
     "title": "Play Snake",
     "action": {
       "type": "launch_frame",
       "name": "Base Snake Daily",
-      "url": "https://snake-tawny-three.vercel.app/",
-      "splashImageUrl": "https://snake-tawny-three.vercel.app/splash.png",
+      "url": "snake-lime-beta.vercel.app/",
+      "splashImageUrl": "snake-lime-beta.vercel.app/splash.png",
       "splashBackgroundColor": "#0b0c10"
     }
   }
@@ -77,7 +77,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="https://snake-tawny-three.vercel.app/og.png"
+          content="snake-lime-beta.vercel.app/og.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
 
@@ -96,7 +96,7 @@ export default function RootLayout({
         />
         <meta
           name="base:og_image_url"
-          content="https://snake-tawny-three.vercel.app/og.png"
+          content="snake-lime-beta.vercel.app/og.png"
         />
 
         {/* Optional Base flags */}
